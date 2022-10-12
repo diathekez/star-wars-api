@@ -4,18 +4,18 @@ import axios from "axios"
 const TestComponent = () => {
   const [count, setCount] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
-  const [brewery, setBreweries] = useState([]);
+  const [breweries, setBreweries] = useState([]);
   const [search, setSearch] = useState("")
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios.get(`https://api.openbrewerydb.org/breweries/search?query=${query}`
+      const results = await axios.get(`https://api.openbrewerydb.org/breweries/search?query=${search}`
       );
-      setPost(results.data);
+      setBreweries(results.data);
       console.log(results.data);
     };
 
-    fetchData()
-  }, []);
+    fetchData();
+  }, [search]);
 
 
 
@@ -27,11 +27,14 @@ const TestComponent = () => {
       <button onClick={() => setCount(state => state+1)}>Increment</button>
       <button onClick={() => setDarkMode(state => !state)}>Toggle Dark Mode</button>
       <input value={search} onChange={(e) => setSearch(e.target.value)} type="text"/>
+      {breweries.map((brewery) => {
+        return <h2>{brewery.name}</h2>;
+      })}
     </div>
   );
 };
 
 export default TestComponent;
 
-// https://www.youtube.com/watch?v=vXu5FSdq90s
-// 40:13
+douiwhdpoqhup9uiqwhednklwjahbdoiuwhweeuophfbwuofhe
+kio0koijoji
