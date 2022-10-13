@@ -8,7 +8,9 @@ const TestComponent = () => {
   const [search, setSearch] = useState("")
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios.get(`https://api.openbrewerydb.org/breweries/search?query=${search}`
+      // const results = await axios.get(`https://api.openbrewerydb.org/breweries/search?query=${search}`
+      // const results = await axios.get(`https://swapi.dev/api/people/?search=${search}`
+      const results = await axios.get(`https://poetrydb.org/random`
       );
       setBreweries(results.data);
       console.log(results.data);
@@ -24,17 +26,16 @@ const TestComponent = () => {
     <div>
       <h1>TestComponent</h1>
       <h2>{count}</h2>
+      <h3>{}</h3>
       <button onClick={() => setCount(state => state+1)}>Increment</button>
       <button onClick={() => setDarkMode(state => !state)}>Toggle Dark Mode</button>
       <input value={search} onChange={(e) => setSearch(e.target.value)} type="text"/>
       {breweries.map((brewery) => {
-        return <h2>{brewery.name}</h2>;
-      })}
+        return <h2>{brewery.lines}</h2>;
+      }
+      )}
     </div>
   );
 };
 
 export default TestComponent;
-
-douiwhdpoqhup9uiqwhednklwjahbdoiuwhweeuophfbwuofhe
-kio0koijoji
